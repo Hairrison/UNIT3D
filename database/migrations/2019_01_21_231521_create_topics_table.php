@@ -44,8 +44,8 @@ class CreateTopicsTable extends Migration {
 			$table->string('last_post_user_username')->nullable();
 			$table->dateTime('last_reply_at')->nullable();
 			$table->integer('views')->nullable();
-			$table->timestamps();
-			$table->integer('forum_id')->index('fk_topics_forums1_idx');
+			$table->integer('forum_id')->index();
+            $table->timestamps();
 		});
 	}
 

@@ -26,7 +26,7 @@ class CreateTwostepAuthTable extends Migration {
 		Schema::create('twostep_auth', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('userId')->index('twostep_auth_userid_index');
+			$table->integer('userId')->index();
 			$table->string('authCode')->nullable();
 			$table->integer('authCount');
 			$table->boolean('authStatus')->default(0);

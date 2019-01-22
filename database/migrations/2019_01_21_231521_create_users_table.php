@@ -29,8 +29,8 @@ class CreateUsersTable extends Migration {
 			$table->string('username');
 			$table->string('email');
 			$table->string('password');
-			$table->string('passkey');
-			$table->integer('group_id')->index('fk_users_groups_idx');
+			$table->string('passkey')->index();
+			$table->integer('group_id')->index();
 			$table->boolean('active')->default(0);
 			$table->bigInteger('uploaded')->default(0);
 			$table->bigInteger('downloaded')->default(0);
@@ -42,7 +42,7 @@ class CreateUsersTable extends Migration {
 			$table->float('seedbonus', 12)->default(0.00);
 			$table->integer('invites')->default(0);
 			$table->integer('hitandruns')->default(0);
-			$table->string('rsskey')->default('abcdefg');
+			$table->string('rsskey')->index();
 			$table->integer('chatroom_id')->default(1);
 			$table->boolean('censor')->default(0);
 			$table->boolean('chat_hidden')->default(0);
@@ -68,10 +68,10 @@ class CreateUsersTable extends Migration {
 			$table->dateTime('last_login')->nullable();
 			$table->dateTime('disabled_at')->nullable();
 			$table->integer('deleted_by')->nullable();
-			$table->timestamps();
 			$table->string('locale')->default('en');
 			$table->integer('chat_status_id')->default(1);
-			$table->softDeletes();
+            $table->softDeletes();
+            $table->timestamps();
 		});
 	}
 

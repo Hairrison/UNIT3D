@@ -27,7 +27,7 @@ class CreateVotersTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('poll_id')->index();
-			$table->integer('user_id')->default(0);
+			$table->integer('user_id')->index();
 			$table->string('ip_address');
 			$table->timestamps();
 		});
